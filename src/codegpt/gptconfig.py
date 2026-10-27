@@ -5,4 +5,5 @@ GPT_CONFIG = {
     "num_heads": 6,
     "num_layers": 6,
     "use_position_embeddings": True,
+    "use_layer_norm": True,
 }
