@@ -65,6 +65,13 @@ class FeedForward(nn.Module):
         return self.network(x)
 
 
+def make_layer_norm(config: dict):
+    """LayerNorm, or a no-op pass-through for the no-LayerNorm ablation."""
+    if config["use_layer_norm"]:
+        return nn.LayerNorm(config["embedding_dim"])
+    return nn.Identity()
+
+
 class TransformerBlock(nn.Module):
     def __init__(self, config: dict):
         """
@@ -73,9 +80,9 @@ class TransformerBlock(nn.Module):
             config (dict): Model configuration.
         """
         super().__init__()
-        self.ln1 = nn.LayerNorm(config["embedding_dim"])
+        self.ln1 = make_layer_norm(config)
         self.attention = CausalSelfAttention(config)
-        self.ln2 = nn.LayerNorm(config["embedding_dim"])
+        self.ln2 = make_layer_norm(config)
         self.feed_forward = FeedForward(config)
 
     def forward(self, x):
@@ -121,7 +128,7 @@ class GPTLanguageModel(nn.Module):
             self.position_embedding = None
 
         self.blocks = nn.Sequential(*[TransformerBlock(config) for _ in range(config["num_layers"])])
-        self.final_layer_norm = nn.LayerNorm(config["embedding_dim"])
+        self.final_layer_norm = make_layer_norm(config)
         self.lm_head = nn.Linear(config["embedding_dim"], config["vocab_size"], bias=False)
 
         # Share token embeddings with the output projection.

@@ -27,6 +27,7 @@ class Trainer:
         num_heads=6,
         num_layers=6,
         use_position_embeddings=True,
+        use_layer_norm=True,
         epochs=11,
         learning_rate=3e-4,
         seed=1337,
@@ -59,6 +60,7 @@ class Trainer:
             "num_heads": num_heads,
             "num_layers": num_layers,
             "use_position_embeddings": use_position_embeddings,
+            "use_layer_norm": use_layer_norm,
         }
         self.model = GPTLanguageModel(self.model_config).to(self.device)
         parameter_count = sum(p.numel() for p in self.model.parameters())
@@ -245,6 +247,9 @@ def parse_args():
     parser.add_argument("--num-heads", type=int, default=GPT_CONFIG["num_heads"])
     parser.add_argument("--num-layers", type=int, default=GPT_CONFIG["num_layers"])
     parser.add_argument("--no-pos-emb", action="store_true", help="Ablation: remove position embeddings.")
+    parser.add_argument("--no-layer-norm", action="store_true", help="Ablation: remove all LayerNorms.")
+    parser.add_argument("--char-level", action="store_true",
+                        help="Ablation: character-level tokens (run src.codegpt.char_tokenizer first).")
 
     # Training
     parser.add_argument("--batch-size", type=int, default=32)
@@ -259,6 +264,10 @@ def parse_args():
 if __name__ == "__main__":
     args = parse_args()
 
+    # Ablation: train on the character-level tokens instead of BPE.
+    if args.char_level:
+        args.data_dir = f"{Config.PROCESSED_DATA_DIR}/tokenized_char"
+
     trainer = Trainer(
         data_dir=args.data_dir,
         checkpoint_dir=args.checkpoint_dir,
@@ -268,6 +277,7 @@ if __name__ == "__main__":
         num_heads=args.num_heads,
         num_layers=args.num_layers,
         use_position_embeddings=not args.no_pos_emb,
+        use_layer_norm=not args.no_layer_norm,
         epochs=args.epochs,
         learning_rate=args.learning_rate,
         seed=args.seed,
