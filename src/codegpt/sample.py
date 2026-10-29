@@ -42,8 +42,8 @@ def complete(
     tokenizer,
     prompt,
     device,
-    max_new_tokens=200,
-    temperature=0.8,
+    max_new_tokens=256,
+    temperature=1.0,
     top_k=50,
     eos_token="<|endoftext|>",
 ):
@@ -86,8 +86,8 @@ def parse_args():
         "--prompt-file", help="Read the prompt from a file."
     )
     parser.add_argument("--num-samples", type=int, default=1)
-    parser.add_argument("--max-new-tokens", type=int, default=200)
-    parser.add_argument("--temperature", type=float, default=0.8)
+    parser.add_argument("--max-new-tokens", type=int, default=256)
+    parser.add_argument("--temperature", type=float, default=1.0)
     parser.add_argument("--top-k", type=int, default=50)
     parser.add_argument("--seed", type=int, default=1337)
     return parser.parse_args()
