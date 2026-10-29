@@ -4,11 +4,12 @@ from pathlib import Path
 import numpy as np
 import torch
 from torch.utils.data import Dataset, DataLoader
+from src.codegpt.gptconfig import GPT_CONFIG
 from src.config import Config
 
 
 class CodeDataset(Dataset):
-    def __init__(self, file_path, context_length=512, random_offset=False):
+    def __init__(self, file_path, context_length=GPT_CONFIG["context_length"], random_offset=False):
         self.context_length = context_length
         self.random_offset = random_offset
         self.offset = 0
@@ -59,7 +60,7 @@ class CodeDataLoader:
     def __init__(
         self,
         data_dir="tokenized",
-        context_length=512,
+        context_length=GPT_CONFIG["context_length"],
         batch_size=8,
         num_workers=0,
     ):
@@ -99,7 +100,7 @@ class CodeDataLoader:
 if __name__ == "__main__":
     loader = CodeDataLoader(
         data_dir=f"{Config.PROCESSED_DATA_DIR}/tokenized",
-        context_length=512,
+        context_length=GPT_CONFIG["context_length"],
         batch_size=8,
     )
 

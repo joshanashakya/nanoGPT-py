@@ -11,7 +11,7 @@ from loguru import logger
 from tokenizers import Tokenizer
 
 from src.codegpt.dataloader import CodeDataLoader
-from src.codegpt.gptconfig import GPT_CONFIG
+from src.codegpt.gptconfig import GPT_CONFIG, TRAIN_CONFIG
 from src.codegpt.model import GPTLanguageModel
 from src.config import Config
 
@@ -21,16 +21,16 @@ class Trainer:
         self,
         data_dir,
         checkpoint_dir,
-        context_length=512,
-        batch_size=32,
-        embedding_dim=384,
-        num_heads=6,
-        num_layers=6,
-        use_position_embeddings=True,
-        use_layer_norm=True,
-        epochs=11,
-        learning_rate=3e-4,
-        seed=1337,
+        context_length=GPT_CONFIG["context_length"],
+        batch_size=TRAIN_CONFIG["batch_size"],
+        embedding_dim=GPT_CONFIG["embedding_dim"],
+        num_heads=GPT_CONFIG["num_heads"],
+        num_layers=GPT_CONFIG["num_layers"],
+        use_position_embeddings=GPT_CONFIG["use_position_embeddings"],
+        use_layer_norm=GPT_CONFIG["use_layer_norm"],
+        epochs=TRAIN_CONFIG["epochs"],
+        learning_rate=TRAIN_CONFIG["learning_rate"],
+        seed=TRAIN_CONFIG["seed"],
     ):
         self.checkpoint_dir = Path(checkpoint_dir)
         torch.manual_seed(seed)
@@ -231,6 +231,7 @@ class Trainer:
             "epochs": self.epochs,
             "device": self.device,
             "model_config": self.model_config,
+            "config_name": Config.GPT_CONFIG_NAME,
         }
         config_path = self.checkpoint_dir / "run_config.json"
         config_path.write_text(json.dumps(run_config, indent=2))
@@ -252,12 +253,12 @@ def parse_args():
                         help="Ablation: character-level tokens (run src.codegpt.char_tokenizer first).")
 
     # Training
-    parser.add_argument("--batch-size", type=int, default=32)
-    parser.add_argument("--epochs", type=int, default=11, help="No of epochs.")
-    parser.add_argument("--learning-rate", type=float, default=3e-4)
+    parser.add_argument("--batch-size", type=int, default=TRAIN_CONFIG["batch_size"])
+    parser.add_argument("--epochs", type=int, default=TRAIN_CONFIG["epochs"], help="No of epochs.")
+    parser.add_argument("--learning-rate", type=float, default=TRAIN_CONFIG["learning_rate"])
 
     # Runtime
-    parser.add_argument("--seed", type=int, default=1337)
+    parser.add_argument("--seed", type=int, default=TRAIN_CONFIG["seed"])
     return parser.parse_args()
 
 
@@ -276,8 +277,8 @@ if __name__ == "__main__":
         embedding_dim=args.embedding_dim,
         num_heads=args.num_heads,
         num_layers=args.num_layers,
-        use_position_embeddings=not args.no_pos_emb,
-        use_layer_norm=not args.no_layer_norm,
+        use_position_embeddings=GPT_CONFIG["use_position_embeddings"] and not args.no_pos_emb,
+        use_layer_norm=GPT_CONFIG["use_layer_norm"] and not args.no_layer_norm,
         epochs=args.epochs,
         learning_rate=args.learning_rate,
         seed=args.seed,
