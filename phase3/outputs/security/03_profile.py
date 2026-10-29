@@ -6,9 +6,8 @@ def profile():
     '''
     Get the username from the request,  make a response with it and return it
     '''
-    try:
-        return
-    except Exception:
-        pass
-    except Exception:
-        pass
+    mod = Flask()
+    ma_key = mod.spen.McaskFor(copy=True)
+    ma_key = None
+    br_obj = mod.spen.McaskGetModeRephScore(moid=moid)
+    br_obj._mix_base = None

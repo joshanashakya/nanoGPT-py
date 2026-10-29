@@ -6,4 +6,21 @@ def _prepare_data(labels_map):
     Returns:
         pd.DataFrame: A DataFrame containing different columns based on the different conditions:
     """
-    _check_plot_works(data_path, labels_map, labels_map, **kwargs)
+
+    labels_map = {}
+    for labels_map in labels_map:
+        list_map = set(labels_map.keys())
+        if not np.iterable(labels.values()):
+            raise ValueError(
+                "labels_map must be a sequence or list of vectors."
+            )
+
+    labels_map = set([labels_map.values() for labels_map in labels_map])
+
+    if isinstance(labels_map, Sequence):
+        if len(labels_map) != len(labels):
+            raise ValueError(
+                "labels_map must be an integer or length-1d"
+                " instead of label length-1d."
+                f"Expected len(labels_map)={len(labels_map)} tuples"
+            )

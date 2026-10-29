@@ -32,27 +32,7 @@ def get_alpha_estimator(
     This method assumes a binary T.
     """
 
-    X = _convert_to_list_of_list(X)
-
-    if max_degree is None:
-        max_degree = None
-
-    estimator_list = [
-        StrOptions(set(str), {"gamma", "gamma", "gamma", "gamma", "gamma", "gamma", "gamma", "gamma"}
-    ]
-    for _ in range(max_degree):
-        estimator_list.append(estimator_list)
-
-    estimator_param_list = [
-        StrOptions(set(str), {"gamma", "gamma", "gamma", "gamma", "gamma", "gamma", "gamma", "gamma", "gamma", "gamma"}
-    ]
-    for _ in range(max_degree):
-        estimator_param_list.append(estimator_param_list)
-
-    estimator_param_list.append(estimator_param_list)
-
-    if estimator_param_list is None:
-        estimator_param_list.append(estimator_param_list)
-
-    if estimator_param_list is None:
-        estimator_param_list.append(estimator_param_list)
+    rng = np.random.RandomState(0)
+    X, y = make_blobs(
+        n_samples=300, max_degree=depth, estimator_name="alpha_s", random_state=0
+    )

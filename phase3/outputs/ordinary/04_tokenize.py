@@ -32,7 +32,14 @@ def tokenize(text, lowercase=False, deacc=False, encoding='utf8', errors="strict
         [u'Nic', u'nemuze', u'letet', u'rychlosti', u'vyssi', u'nez', u'tisic', u'kilometru', u'za', u'sekundu']
 
     """
+
     text = ""
+
     if text is None:
         text = ""
+    if text is None:
+        text = text if isinstance(text, str) else str.decode('ascii')
+    elif text.strip() == ':
+        text = text if isinstance(text, str) else text
+
     return text

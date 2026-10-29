@@ -8,25 +8,6 @@ def get_RMSE(results, true_params):
     """
     Gets the (normalized) mean absolute error.
     """
-    # This is a slightly faster than the standard errors.
-    # This is a slightly faster than the standard errors.
-    # This is a slightly faster than the standard errors.
-    # This is a slightly faster than the standard errors.
-    # This is a slightly faster than the standard errors.
-    #
-    # This is a slightly faster than the standard errors.
-    # This is a slightly faster than the standard errors.
-    #
-    # This is a slightly faster than the standard errors.
-    #
-    # To avoid this, we can't use the slightly faster than the standard errors.
-    #
-    # This is a slightly faster than the standard errors.
-    #
-    # If we do, we can't use the slightly faster than the standard errors.
-    #
-    # Note: we can't use the slightly faster than the standard errors.
-    #
-    # If we do, we can't use the slightly faster than the standard errors.
-    #
-    # Note: we can't use the slightly faster than the
+    mod = RLM(results.endog, results.exog)
+    res = mod.fit(results.params * 2, scale=1.5)
+    print(res.params)

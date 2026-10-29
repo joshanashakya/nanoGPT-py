@@ -24,31 +24,14 @@
                 columns. Else if the dataframe has "label" column, then the dataframe will have all the columns except
                 "multilabel" column. Otherwise, the dataframe will have only the "submission_id" and "feedback" columns.
         """
-        _raise_error(error_msg)
+        _raise_type(TypeError)
+        if len(self.obj) > len and self._label_pred_in_idxs(
+            self.obj._label_pred_in_idxs
+        ):
+            self.obj._label_pred_in_idxs = self._get_target_adin_idxs(
+                self.obj.name, self.obj._label_pred_in_idxs
+            )
 
-        if self._prepare_data_path is not None:
-            _raise_error(error_msg)
-
-        if self._prepare_data_path is not None:
-            _raise_error(error_msg)
-
-        if self._prepare_data_path is not None:
-            _raise_error(error_msg)
-
-        if self._prepare_data_path is not None:
-            _raise_error(error_msg)
-
-        if self._prepare_data_path is not None:
-            _raise_error(error_msg)
-
-        if self._prepare_data_path is not None:
-            _raise_error(error_msg)
-
-        if self._prepare_data_path is not None:
-            _raise_error(error_msg)
-
-        if self._prepare_data_path is not None:
-            _raise_error(error_msg)
-
-        if self._prepare_data_path is not None:
-            _raise_error(error_msg)
+        self.obj = obj
+        self.target = target
+        self._target_is_reconstruct = False

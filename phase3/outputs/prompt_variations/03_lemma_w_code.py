@@ -13,41 +13,21 @@ print("Lemmatization without POS tags:")
 print(lemmas_without_pos)
 print("\n")
 
-# Tokenize the word and the word and the word
-word = word_tokenize(text)
+# The `lang` tag is in ``nltk.tag.word_tokenize.cdrill([pos])``.  Please the
+# the `lang` module:
+word_tok = [w.token for w in word_tokenize(sent)]
 
-# Tokenize the word and the word
-word = word_tokenize(text)
+# Tokenize the text and then rest of speech tagger (it has already
+# a *lang* flag).  It also possible to check whether that of the
+# `tag` attribute is present in the `tag` attribute or `tag`
+# attribute of the tag name in `sent_starizer`.  See the original name for details.
+modelicalLanguage = "english.tagger" in sent_starizer
 
-# Tokenize the word and the word
-word = word_tokenize(text)
+# The following Skip data for `pos_tag` and `sents` (Training language).  In order to
+# be encoded in the first `pos_tag`.
+words = word_tokenize(text)
+modelical_states = word_tokenize(sent)
+words[modelical_states] = sent_starizer.tag(sent)
+sentence_idx = sent_starizer.tagged_sents()[0]
 
-# Tokenize the word and the word
-word = word_tokenize(text)
-
-# Tokenize the word and the word
-word = word_tokenize(text)
-
-# Tokenize the word and the word
-word = word_tokenize(text)
-
-# Tokenize the word and the word
-word = word_tokenize(text)
-
-# Tokenize the word and the word
-word = word_tokenize(text)
-
-# Tokenize the word and the word
-word = word_tokenize(text)
-
-# Tokenize the word and the word
-word = word_tokenize(text)
-
-# Tokenize the word and the word
-word = word_tokenize(text)
-
-# Tokenize the word and the word
-word = word_tokenize(text)
-
-# Tokenize the word and the word
-word
+# We can also let this, if the

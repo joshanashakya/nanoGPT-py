@@ -88,28 +88,3 @@ def buildhooks(pymod):
            'latexdoc': []}
     fhooks = ['']
 
-    for a in pymod.iter_fields(routines, out=out):
-        if a.startswith('_'):
-            continue
-        if a.startswith('_'):
-            continue
-        elif a.startswith('_'):
-            continue
-        if a.startswith('_'):
-            continue
-        elif a.startswith('_'):
-            continue
-        elif a.startswith('_'):
-            continue
-        elif a.startswith('_'):
-            continue
-        if a.startswith('_'):
-            continue
-        elif a.startswith('_'):
-            continue
-        elif a.startswith('_'):
-            continue
-        if a.startswith('_'):
-            continue
-        else:
-            continue

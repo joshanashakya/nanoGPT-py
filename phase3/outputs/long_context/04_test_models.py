@@ -318,4 +318,19 @@ class TestLargeStateCovAR1:
             self.res.smoothed_measurement_disturbance_cov,
             self.res_desired.smoothed_measurement_disturbance_cov,
         )
-
+        assert_allclose(
+            self.res.smoothed_state_disturbance_cov[0, 0],
+            self.res_desired.smoothed_measurement_disturbance_cov[0, 0],
+        )
+        assert_allclose(
+            self.res.smoothed_measurement_disturbance_cov[0, 1, :],
+            self.res_desired.smoothed_measurement_disturbance_cov[0, 0],
+        )
+        assert_allclose(
+            self.res.smoothed_measurement_disturbance_cov[1, 0, :],
+            self.res_desired.smoothed_measurement_disturbance_cov[1, 0, :],
+        )
+        assert_allclose(
+            self.res.smoothed_measurement_disturbance_cov[1, 0, :],
+            self.res_expected.smoothed_state_disturbance_cov[1, 0, :],
+        )

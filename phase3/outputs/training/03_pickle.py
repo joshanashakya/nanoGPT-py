@@ -28,15 +28,32 @@ def __bit_generator_ctor(bit_generator: str | type[BitGenerator] = 'MT19937'):
     BitGenerator
         BitGenerator instance
     """
-    bit_generator_ctor = BitGenerator.__new__(BitGenerator)
+    _ = "bit_generator_ctor", "known"
 
-    if bit_generator_ctor is None:
-        bit_generator_ctor = BitGenerator.__new__(BitGenerator)
+    def __init__(self, bit_generator_ctor, good_generator_ctor):
+        """
+        Initialized code for BitGenerator.
+        Parameters
+        ----------
+        bit_generator_ctor : str, optional
+            Renchussion for BitGenerator, default: 0.
+            Argument 1 feature detected by ``bit_generator``.
+            Default is 2.
+        good_generator_ctor : str, optional
+            BitGenerator random number generator.
 
-    if bit_generator_ctor is None:
-        bit_generator_ctor = BitGenerator.__new__(BitGenerator)
+        Notes
+        -----
+        This attribute gets defined for BitGenerator. Use
+        `np.identity` with an attribute ``NPS["BitTime"]``,
+        and the output is checked for F1/TNS
+        with GNB. If `bit_generator_ctor` is provided, then
+        `nocalle_generator` is used.
 
-    if bit_generator_ctor is None:
-        bit_generator_ctor = BitGenerator.__new__(BitGenerator)
+        """
+        size = bit_generator_ctor
 
-    return BitGenerator
+        self.bit_generator_ctor = bit_generator_ctor
+
+        advance = _BitGenerator.__bit_generator_ctor__()
+        advance = _

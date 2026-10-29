@@ -12,28 +12,21 @@ with safe_import():
 
 
 class QuadraticAssignment(Benchmark):
-    """
-    Benchmark a quadratic univariate quadratic problem.
+    """Benchmark the quantificial model."""
 
-    This class defines the quadratic univariate quadratic problem.
-    This class defines the quadratic univariate quadratic problem.
-    This class defines the quadratic univariate quadratic problem.
-    This class defines the quadratic univariate quadratic problem.
-    This class defines the quadratic univariate quadratic problem.
-    This class defines the quadratic univariate quadratic problem.
-    This class defines the quadratic univariate quadratic problem.
-    This class defines the quadratic univariate quadratic problem.
-    This class defines the quadratic univariate quadratic problem.
-
-    This class defines the quadratic univariate quadratic problem.
-    This class defines the quadratic univariate quadratic problem.
-    This class defines the quadratic univariate quadratic problem.
-    This class defines the quadratic univariate quadratic problem.
-    This class defines the quadratic univariate quadratic problem.
-
-    This class defines the quadratic univariate quadratic problem. This
-    class defines the quadratic univariate quadratic problem. This class defines
-    the quadratic univariate quadratic problem. This class defines the quimodal
-    problem. This class defines the quadratic univariate quadratic problem. This
-    class defines the quadratic univariate quadratic problem. This class defines
-   
+    params = [
+        [
+            [  # Derunds each individual sentence for each individual
+                  brce.distance_align(order=[-10, 1000]);
+              # Derunds each individual sentence (including all words) and
+              # not inject before:
+            # \dagger f(x)s(x) {Dumberg(x)(x) + 1/x}
+            [  # Based: the CT Dollite is Derunds each individual
+                  blce.distance_align(order=[-10, 1000]);
+              # Default type:
+              [  # Based: `McG: `Kern1dDrial`
+                  [
+                    # Based: `_BryThaVymbolBase.period.tracke.RBF(x) + 1/2.3  # Must type:
+                    brce.distance_align(order=[-10, 1000]);
+                ],
+               # Even: 2 Positive Positive RBF(0) - Pos

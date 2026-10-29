@@ -10,31 +10,4 @@ def below_zero(operations: List[int]) -> bool:
     >>> below_zero([1, 2, -4, 5])
     True
     """
-    if len(operations) == 0:
-        return False
-
-    if len(operations) == 0:
-        return False
-
-    if not isinstance(operations, tuple):
-        return False
-
-    if not isinstance(operations, tuple):
-        return False
-
-    if not isinstance(operations, tuple):
-        return False
-
-    if not isinstance(operations, tuple):
-        return True
-
-    if not isinstance(operations, tuple):
-        return False
-
-    if not isinstance(operations, tuple):
-        return False
-
-    if not isinstance(operations, tuple):
-        return False
-
-    return None
+    return iter(operations.flatten())

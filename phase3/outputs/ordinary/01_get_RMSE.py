@@ -8,20 +8,6 @@ def get_RMSE(results, true_params):
     """
     Gets the (normalized) root mean square error.
     """
-    # This is a slightly different from the results.
-    # The effect of the model is the same as the estimated model.
-    # The effect of the model is the same as the estimated model.
-    # The effect of the model is the same as the estimated model.
-    # The effect of the model is the same as the estimated model.
-    # The effect of the model is the same as the estimated model.
-    # The effect of the model is the same as the estimated model.
-    # The effect of the model is the same as the estimated model is
-    # the same as the estimated model.
-    # The effect of the model is the same as the estimated model is
-    # the same as the estimated model is the same as the
-    # estimated model is the same as the estimated model.
-    # The effect of the model is the same as the estimated model is
-    # the same as the estimated model is the same as the estimated model is
-    # the same as the estimated model is the same as the estimated model is
-    # the same as the estimated model is the same as the estimated model is
-    # the same as the estimated model is the
+    mod = RLM(results.endog, results.exog)
+    res = mod.fit(results.params * 2, scale=1.5)
+    print(res.params)

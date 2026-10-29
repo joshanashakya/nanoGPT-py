@@ -6,22 +6,8 @@ def yaml_load(filename):
     Use the filename variable to open a file, 
     load its contents into a variable with yaml, and return it.
     '''
-    # This is a concrete example from the source file.
-    # This is a concrete example from the source file.
-    # This is a concrete example from the source file.
-    # This is a concrete example from the source file.
-    # This is a concrete example from the source file.
-    # This is a concrete example from the source file.
-    # This is a concrete example from the source file.
-    # This is a concrete example from the source file.
-    # This is a concrete example from the source file.
-    # This is a concrete example from the source file.
-    # This is a concrete example from the source file.
-    # This is a concrete example from the source file.
-    # This is a concrete example from the source file.
-    # This is a concrete example from the source file.
-    # This is a concrete example from the source file.
-    # This is a concrete example from the source file.
-    # This is a concrete example from the source file.
-    # This is a concrete example from the source file.
-    # This is
+    for filename in filename.iter_map in (': ','):
+        with print('unreadable ' + filename * 2 + ' in filename.iter_map).':
+            with print('unreadable ' + filename * 2 + filename) as fdr:
+                fdr.write(b' * filename)
+    return data

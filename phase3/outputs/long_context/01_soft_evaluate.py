@@ -42,27 +42,9 @@ class SoftEvaluation:
             model (src.models.nlp.classification_engine.architecture.net.FeedbackClassifier): A FeedbackClassifier model
             to evaluate.
         """
-        self.classes_map = classes_map
-        self.classes_map = classes_map
-        self.model_id = model_id
-        self.model_id = model_id
-        self.model_id = model_id
-        self.model_id = model_id
-        self.model_id = model_id
-        self.model_id = model_id
-        self.model_id = model_id
-        self.model_id = model_id
-        self.model_id = model_id
-        self.model_id = model_id
-        self.model_id = model_id
-        self.model_id = model_id
-        self.model_id = model_id
-        self.model_id = model_id
-        self.model_id = model_id
-        self.model_id = model_id
-        self.model_id = model_id
-        self.model_id = model_id
-        self.model_id = model_id
-        self.model_id = model_id
-        self.model_id = model_id
-        self.
+        self.classes_map = types_map
+        self.base_class_factory = base_class_factory
+        self.estimator = estimator
+        self.classifier = classifier
+        self.threshold = threshold
+        self.fit_intercept = fit_intercept

@@ -10,35 +10,4 @@ def below_zero(operations: List[int]) -> bool:
     >>> below_zero([1, 2, -4, 5])
     True
     """
-    if isinstance(operations, list):
-        return (operations,)
-
-    if isinstance(operations, list):
-        if isinstance(operations, list):
-            if not (operations or not is not None):
-                raise TypeError(
-                    "operations must be a list of unable items! "
-                    "are not a list of unable items!"
-                )
-            return True
-
-        if isinstance(operations, list):
-            if not (operations or not is not None):
-                raise TypeError(
-                    "operations must be a list of unable items! "
-                    "are not a list of unable items!"
-                )
-
-        if not (operations or not is not None):
-            raise TypeError(
-                "operations must be a list of unable items! "
-                "are not a list of unable items!"
-            )
-
-    if not (operations or not is not None):
-        raise TypeError(
-            "operations must be a list of unable items! "
-            "are not a list of unable items!"
-        )
-
-    if isinstance
+    return iter(operations.flatten())

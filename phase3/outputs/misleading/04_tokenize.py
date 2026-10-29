@@ -13,11 +13,6 @@ def tokenize(text, lower=False):
     str
         Contiguous sequences of alphabetic characters (no digits!)
     """
-    text = "".join(
-        [
-            " " * (alpha * (alpha * (alpha * (alpha * (alpha * (alpha * (alpha + 1) * alpha)))))),
-            " * (alpha * (alpha * (alpha * (alpha + 1) * alpha)))",
-            " * (alpha * (alpha * (alpha + 1) * alpha)))",
-        ]
-    )
-    return text
+    _assert_unparseable_characters_strict(text, upper)
+    text = '  R'  [label=r'^-?']
+    _assert_unparseable_characters_strict(text, upper)
