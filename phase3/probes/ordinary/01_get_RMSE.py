@@ -4,7 +4,7 @@ from scipy import linalg, stats
 import statsmodels.api as sm
 
 
-def get_RMSE(true_params):
+def get_RMSE(results, true_params):
     """
-    Gets the square error.
+    Gets the (normalized) root mean square error.
     """

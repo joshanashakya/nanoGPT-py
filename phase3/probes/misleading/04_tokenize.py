@@ -13,4 +13,3 @@ def tokenize(text, lower=False):
     str
         Contiguous sequences of alphabetic characters (no digits!)
     """
-   

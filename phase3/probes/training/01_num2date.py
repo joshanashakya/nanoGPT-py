@@ -10,19 +10,3 @@ def num2date(x, tz=None):
         epoch, which can be changed by :rc:`date.epoch` or `.set_epoch`.
     tz : str or `~datetime.tzinfo`, default: :rc:`timezone`
         Timezone of *x*. If a string, *tz* is passed to `dateutil.tz`.
-
-    Returns
-    -------
-    `~datetime.datetime` or sequence of `~datetime.datetime`
-        Dates are returned in timezone *tz*.
-
-        If *x* is a sequence, a sequence of `~datetime.datetime` objects will
-        be returned.
-
-    Notes
-    -----
-    The Gregorian calendar is assumed; this is not universal practice.
-    For details, see the module docstring.
-    """
-    tz = _get_tzinfo(tz)
-    return _from_ordinalf_np_vectorized(x, tz).tolist()

@@ -10,5 +10,3 @@ def binary_distance(label1, label2):
     >>> binary_distance(1,3)
     1.0
     """
-
-    return 0.0 if label1 == label2 else 1.0

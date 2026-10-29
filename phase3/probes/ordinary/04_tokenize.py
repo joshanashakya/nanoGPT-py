@@ -32,4 +32,3 @@ def tokenize(text, lowercase=False, deacc=False, encoding='utf8', errors="strict
         [u'Nic', u'nemuze', u'letet', u'rychlosti', u'vyssi', u'nez', u'tisic', u'kilometru', u'za', u'sekundu']
 
     """
-   
