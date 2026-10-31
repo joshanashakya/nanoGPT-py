@@ -13,7 +13,6 @@ def load_model(checkpoint_path, device):
     checkpoint = torch.load(checkpoint_path, map_location=device)
 
     model_config = dict(checkpoint["model_config"])
-    model_config.pop("dropout", None)
 
     # Checkpoints saved before position-embedding ablations always had them.
     model_config.setdefault("use_position_embeddings", True)
@@ -78,7 +77,7 @@ def parse_args():
     )
     parser.add_argument(
         "--tokenizer",
-        default=f"{Config.PROCESSED_DATA_DIR}/tokenized/tokenizer.json",
+        default=f"{Config.PROCESSED_DATA_DIR}/tokenized_char/tokenizer.json",
     )
     prompt_group = parser.add_mutually_exclusive_group(required=True)
     prompt_group.add_argument("--prompt", help="Prompt text.")

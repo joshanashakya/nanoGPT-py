@@ -28,6 +28,7 @@ class Trainer:
         num_layers=GPT_CONFIG["num_layers"],
         use_position_embeddings=GPT_CONFIG["use_position_embeddings"],
         use_layer_norm=GPT_CONFIG["use_layer_norm"],
+        dropout=GPT_CONFIG.get("dropout", 0.0),
         epochs=TRAIN_CONFIG["epochs"],
         learning_rate=TRAIN_CONFIG["learning_rate"],
         seed=TRAIN_CONFIG["seed"],
@@ -61,6 +62,7 @@ class Trainer:
             "num_layers": num_layers,
             "use_position_embeddings": use_position_embeddings,
             "use_layer_norm": use_layer_norm,
+            "dropout": dropout,
         }
         self.model = GPTLanguageModel(self.model_config).to(self.device)
         parameter_count = sum(p.numel() for p in self.model.parameters())
@@ -247,6 +249,7 @@ def parse_args():
     parser.add_argument("--embedding-dim", type=int, default=GPT_CONFIG["embedding_dim"])
     parser.add_argument("--num-heads", type=int, default=GPT_CONFIG["num_heads"])
     parser.add_argument("--num-layers", type=int, default=GPT_CONFIG["num_layers"])
+    parser.add_argument("--dropout", type=float, default=GPT_CONFIG.get("dropout", 0.0))
     parser.add_argument("--no-pos-emb", action="store_true", help="Ablation: remove position embeddings.")
     parser.add_argument("--no-layer-norm", action="store_true", help="Ablation: remove all LayerNorms.")
     parser.add_argument("--char-level", action="store_true",
@@ -277,6 +280,7 @@ if __name__ == "__main__":
         embedding_dim=args.embedding_dim,
         num_heads=args.num_heads,
         num_layers=args.num_layers,
+        dropout=args.dropout,
         use_position_embeddings=GPT_CONFIG["use_position_embeddings"] and not args.no_pos_emb,
         use_layer_norm=GPT_CONFIG["use_layer_norm"] and not args.no_layer_norm,
         epochs=args.epochs,

@@ -14,7 +14,10 @@ class CausalSelfAttention(nn.Module):
         """
         super().__init__()
         # batch_first tells the tensor has the batch dimension first (batch, sequence, embedding_dim)
-        self.attention = nn.MultiheadAttention(config["embedding_dim"], config["num_heads"], batch_first=True)
+        # dropout here randomly drops attention weights during training (config "dropout", 0 when missing)
+        self.attention = nn.MultiheadAttention(
+            config["embedding_dim"], config["num_heads"], dropout=config.get("dropout", 0.0), batch_first=True
+        )
 
         # True above the diagonal = "may not attend to future tokens".
         mask = torch.ones(config["context_length"], config["context_length"], dtype=torch.bool)
@@ -53,6 +56,7 @@ class FeedForward(nn.Module):
             nn.Linear(config["embedding_dim"], 4 * config["embedding_dim"]), # 384 → 1536
             nn.GELU(),
             nn.Linear(4 * config["embedding_dim"], config["embedding_dim"]), # 1536 → 384
+            nn.Dropout(config.get("dropout", 0.0)),
         )
 
     def forward(self, x):
@@ -84,6 +88,7 @@ class TransformerBlock(nn.Module):
         self.attention = CausalSelfAttention(config)
         self.ln2 = make_layer_norm(config)
         self.feed_forward = FeedForward(config)
+        self.dropout = nn.Dropout(config.get("dropout", 0.0))
 
     def forward(self, x):
         """
@@ -100,7 +105,7 @@ class TransformerBlock(nn.Module):
         attention_output = self.attention(normalized)  
 
         # residual: add to the original x
-        x = x + attention_output         
+        x = x + self.dropout(attention_output)         
 
         # 2. Feed-forward sublayer
         # normalize before sending to feed-forward
@@ -120,6 +125,7 @@ class GPTLanguageModel(nn.Module):
         super().__init__()
         self.config = config
         self.token_embedding = nn.Embedding(config["vocab_size"], config["embedding_dim"])
+        self.embedding_dropout = nn.Dropout(config.get("dropout", 0.0))
 
         # Ablation: the model can be built without position embeddings.
         if config["use_position_embeddings"]:
@@ -162,6 +168,7 @@ class GPTLanguageModel(nn.Module):
             positions = torch.arange(sequence_length, device=input_ids.device)
             x = x + self.position_embedding(positions)
 
+        x = self.embedding_dropout(x)
         x = self.blocks(x)
         x = self.final_layer_norm(x)
         logits = self.lm_head(x)

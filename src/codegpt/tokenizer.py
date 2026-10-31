@@ -1,4 +1,6 @@
 
+import argparse
+
 from loguru import logger
 from pathlib import Path
 
@@ -95,9 +97,24 @@ class CodeTokenizer:
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Train a BPE tokenizer and encode the dataset splits.")
+    parser.add_argument("--split-dir", default=f"{Config.PROCESSED_DATA_DIR}/dataset_split")
+    parser.add_argument("--output-dir", default=f"{Config.PROCESSED_DATA_DIR}/tokenized")
+    parser.add_argument(
+        "--overwrite",
+        action="store_true",
+        help="Allow replacing an existing tokenizer.json in --output-dir.",
+    )
+    args = parser.parse_args()
+
+    # The baseline's tokenizer lives in tokenized/ and is loaded by sample.py and the phase scripts,
+    # so never replace an existing one by accident.
+    if (Path(args.output_dir) / "tokenizer.json").exists() and not args.overwrite:
+        raise SystemExit(f"{args.output_dir} already has a tokenizer. Use another --output-dir, or --overwrite.")
+
     tokenizer = CodeTokenizer(
-        split_dir=f"{Config.PROCESSED_DATA_DIR}/dataset_split",
-        output_dir=f"{Config.PROCESSED_DATA_DIR}/tokenized",
+        split_dir=args.split_dir,
+        output_dir=args.output_dir,
         vocab_size=8192,
     )
     tokenizer.run()
