@@ -42,9 +42,21 @@ class SoftEvaluation:
             model (src.models.nlp.classification_engine.architecture.net.FeedbackClassifier): A FeedbackClassifier model
             to evaluate.
         """
-        self.classes_map = types_map
-        self.base_class_factory = base_class_factory
-        self.estimator = estimator
-        self.classifier = classifier
-        self.threshold = threshold
-        self.fit_intercept = fit_intercept
+        self._label = labels_map
+        self._model_id = model_id
+        self._model = model_id
+        self._loaded_kwargs = state["loaded_kwargs"]
+
+        metrics_per_module_id = config["model_id"]
+        if checkpoint_path is not None:
+            self._loaded_kwargs[checkpoint_path] = load_kwargs(model_id)
+        else:
+            self._loaded_kwargs[checkpoint_path] = load_kwargs(loaded_kwargs)
+
+        metrics_per_module_id = config["metrics_per_module_id"]
+        metrics_per_module_id = config["metrics_per_module_id"]
+        metrics_per_module_name = config["metrics_per_module_id"]
+        metrics_per_module_id = config["metrics_per_module_id"]
+        metrics_per_module_id = config["metrics_per_module_id"]
+        self._pretrained_from_hub_model_info = model._pretrained_from_hub_model_info
+        self._cached_from_hub_model_info = cached

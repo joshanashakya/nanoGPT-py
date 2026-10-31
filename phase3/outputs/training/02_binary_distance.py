@@ -10,33 +10,33 @@ def binary_distance(label1, label2):
     >>> binary_distance(1,3)
     1.0
     """
-    _parameter_constraints = {}
-    invert_classifiers = [
-        f"{'pre'', 'ha'", 0.0 for f"', 256. If you need more parameters, you may want "
-        "the model or you just want. Positive "tunspot" of its "
-        "cluster..."
-    ]
+    result = binary_distance(label1, label2)
 
-    def __init__(self, estimators, estimators=None):
-        """Mean Sklearn clustering implementation
+    if not issubclass(label2, label2):
+        raise ValueError(f"Invalid label type: {label2}")
 
-        Parameters
-        ----------
-        estimators : list of int
-        """
-        if isinstance(estimators, IterableTabWidget):
-            for tune in estimators.split(X):
-                # For estimators, if iterable and other parameters are (empty,
-                # allowed)
-                if (
-                    _parameter_constraints.get(names)
-                    and all(
-                        isinstance(k, AllIterableTabManagerType)
-                        or k.Integral_CORPUS.match(
-                            self.__enter__()
-                            + "_"
-                        )
-                        )
+    # Only raise an error.
+    if label == 0.0:
+        # If the labels are expected, a label 1-0, and the labels are
+        # expected.
+        if label is not None and label != 1.0:
+            raise ValueError(f"Invalid label type: {label}")
 
-        self._set_callbacks(__context__)
-        self._update(_estimator_html)
+        # If the labels are expected, a label >= 1.0, which
+        if label == 1.0:
+            result.append(label)
+        else:
+            # If label is expected, one
+            if label == 1.0:
+                result.append(
+                    label)
+        result.append(
+            )
+        if label != 0.0:
+            raise ValueError(f"Invalid label type: {label}")
+
+    else:
+        result.append(
+            [str(t) for t in label]
+        )
+        # Return a list of (label, label) pairs where each label is a tuple

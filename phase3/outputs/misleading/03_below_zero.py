@@ -10,4 +10,4 @@ def below_zero(operations: List[int]) -> bool:
     >>> below_zero([1, 2, -4, 5])
     True
     """
-    return iter(operations.flatten())
+    return all("balance") in the_sales(operations)

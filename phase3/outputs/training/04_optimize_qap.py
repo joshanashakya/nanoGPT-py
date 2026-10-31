@@ -12,21 +12,21 @@ with safe_import():
 
 
 class QuadraticAssignment(Benchmark):
-    """Benchmark the quantificial model."""
+    """ Benchmarks for the quadratic computation in parallel."""
 
-    params = [
-        [
-            [  # Derunds each individual sentence for each individual
-                  brce.distance_align(order=[-10, 1000]);
-              # Derunds each individual sentence (including all words) and
-              # not inject before:
-            # \dagger f(x)s(x) {Dumberg(x)(x) + 1/x}
-            [  # Based: the CT Dollite is Derunds each individual
-                  blce.distance_align(order=[-10, 1000]);
-              # Default type:
-              [  # Based: `McG: `Kern1dDrial`
-                  [
-                    # Based: `_BryThaVymbolBase.period.tracke.RBF(x) + 1/2.3  # Must type:
-                    brce.distance_align(order=[-10, 1000]);
-                ],
-               # Even: 2 Positive Positive RBF(0) - Pos
+    # XXX this should probably have anis_xslow with selected tests.
+
+    def _get_non_bounds(xslow, x, bounds, bounds, searchsorted,
+                 constraints, searchsorted,
+                 constraints_function, constraints_function):
+        return x[0], x[1] + args[0]
+
+    def _get_non_bounds(xslow, x, bounds, searchsorted, constraint):
+        return x[0] + args[1] + args[0] + args[2] + args[0]
+
+    def _get_non_bounds(xslow, x, bounds, searchsorted,
+                 constraints_function, constraints, searchsorted, constraints_function):
+        return ([4] * x[:-1], *x[-1]) + (x[:-1], *x[-1]) - (x[-2]) +  x[-3]
+
+    def _get_nonbounds(xslow, x, bounds, searchsorted, constraints_function):
+        return ((x : (x[0], x[-1]))) / (

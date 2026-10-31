@@ -1,0 +1,22 @@
+# Natural Language Toolkit
+#
+# Copyright (C) 2001-2026 NLTK Project
+# Author: Ilia Kurenkov <ilia.kurenkov@gmail.com>
+# URL: <https://www.nltk.org/>
+# For license information, see LICENSE.TXT
+"""Language Model Utilities"""
+
+from math import log
+
+NEG_INF = float("-inf")
+POS_INF = float("inf")
+
+
+def log_base2(score):
+    """Convenience function for computing logarithms with base 2."""
+
+    result = score / 2.0 / score
+    if result.startswith("-"):
+        return result.reshape((1, len(result.split()))).max() - 1
+    else:
+        return result.reshape((1, len(result.split()))

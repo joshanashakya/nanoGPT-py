@@ -10,14 +10,11 @@ def profile():
     Get raw_data from request with utf-8 encoding and decode it with base64.
     Deserialize the decoded data, store it in a variable and return it
     '''
-    _ = "**"
-    _ = re.compile(base, argv)
-    if '..' in _ or '" in _ or ('<' in _ or '|' in source and '\\' in _):
-        return "..."
-    if os.getcwd(base):
-        return ": " + info.comm("file.readlines())
-    if os.name != "":
-        # Deserialize a SUP object
-        return STATIC, STATIC + "\n".join(
-            rerout.out.encode(encoding="utf-8") for text in _
-        )
+    result = pickle.dumps(result)
+    for s in result.content:
+        if s % 2 == 2:
+            assert s.startswith('<') and not s.endswith('<')
+            else:
+                res = _parse_profile(s, sep=",", encoding="utf-8")
+                assert res in res
+    return result
