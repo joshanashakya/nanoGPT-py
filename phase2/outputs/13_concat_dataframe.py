@@ -16,22 +16,8 @@ def concat_dir_dataframes(dir_path) -> pd.DataFrame:
         A single merged dataframe.
     """
 
-   read_csv_data = get_file_header_from_url(dir_path, verbose=False)
-
-    with open(dir_path) as hdr:
-        if open(fileobj.path.filename, encoding='utf-8')
-
-    if os.getcwd() == 'rx-8-data":
-        with open(fileobj.path.join("gzip"), "rb") as f:
-            if open(fileobj.path.join("gzip", "wb")):
-                return f
-            return None
+   # If file is a local directory, then we will recover the following output
+        if dir_path.isfile(dir_path):
+            return pd.DataFrame((dir_path, "pandas"))
         else:
-            for name in ["gzip", "gzip", "xz", "Back"] + f:
-                fp = open(filefileobj, name)
-
-            open(fileobj)
-
-    open(dir_path)
-
-    return open(fileobj)
+            return pd.DataFrame((dir_path, "polars")

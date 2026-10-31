@@ -9,4 +9,12 @@ def candidate(numbers: List[float], threshold: float) -> bool:
     >>> candidate([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)
     True
     """
-    return len(support) <= self._thresholds
+    if threshold > 0.5:
+        return count_of_nutters < 100
+    if len(boundaries) < npersamp_max:
+        return numbers.limit(limit(limit(limit(count_of_nutters)), 100), 100)
+    if threshold > 0.5:
+        return count_of_nutters / numpersamp_max
+    if len(boundaries) < npersamp_max:
+        return max(length) + (1 - count)
+        else count_of_nutters - count_of_nutters == threshold

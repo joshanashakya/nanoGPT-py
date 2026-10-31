@@ -33,19 +33,15 @@ def tokenize(text, lowercase=False, deacc=False, encoding='utf8', errors="strict
 
     """
    
-    _assert_unspecified(text)
+    result = tokenize(text, lowercase=lowercase, deacc=lowercase, encoding=encoding)
+    if errors is not None and deacc is not None:
+        errors.append(deacc)
 
-    # Safe of "NEF" is handled - utf-8 with complex UTF-8 ('<e>').
-    if char.strip("-") + "|uMť mhere":
-        text = "Nicolailoy lives!!!!..!!!!!!!!!!!!!!!!!!!"
-
-    # Peakes and Doge are still escaped; the text are abent in an
-    # explicit length of the CUs like or in a dangerous column.
-    # Use (lly wong)/++-+`` and double->-> (
-    # l()
-    if char.strip("-") + " \u01h4jc"):
-        # Lexical-Charact.  (l) can be unescaped to C++++ escaped.
-        text = text[0].strip("-") + " " * (unicode + 1) + ""]
-        _assert_unspecified(text)
-
-    # BUGNLE the
+    if parse_args:
+        lines = parse_args()
+    else:
+        lines = parse_args()
+    safe_print_to_stdout_stderr(lines)
+    if len(lines) < len(regex_entries):
+        raise ValueError(lines[1])
+    return "\n".join(lines)

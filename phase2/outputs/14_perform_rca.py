@@ -11,31 +11,32 @@ def perform_rca(self, df, treatments):
     for treatment in treatments:
         model = CausalModel(data=df, treatment=treatment, outcome="revenue")
         identified_estimand = model.identify_effect()
-       causal_model = model.estimate_effect(
-        identified_estimand,
-        method_name=caller_method_name,
-        proceed_when_unidentifiable=True,
-        test_significance=None,
-    ):
-        with warnings.catch_warnings():
-            warnings.simplefilter("error")
-            data = dowhy.read_csv(
-                SimpleNamespace(tables[0]),
-                data=df,
-                effect_modifiers=data,
-                options={
-                    "galwidth": 1,
-                    "don": 220,
-                    "don": 220,
-                    "grayle": 3.0,
-                    "grayle_level_estimated": True,
-                    "backdoor": lambda: 10**0.01,
-                    "backdoor": lambda: 1,
-                    "backdoor": lambda: -1,
-                    "backdoor": lambda: 1,
-                }
-            )
-            identified_estimand = model.identify_effect(
-                identified_estimand=identified_estimand,
-                method_name="backdoor",
-                p=0.05,
+       predefined_estimand = model.predefined_estimand_from_str(
+        estimand_type=estimand.estimand_type,
+        ref_type=ref_type,
+        ref_type=ref_type,
+        ref_type=ref_type,
+        ref_type=ref_type,
+        test_significance=test_significance,
+    )
+    effect = np.array([[1.4, 1.4, 0.5],
+                      [1.4, 1.5, 0.2],
+                      [0.7, -0.05, 0.05],
+                      [1.5, 1.5, 0.2],
+                      [0.7, -0.05, 0.05, 0.5],
+                      [1.5, 0.3, 0.053],
+                      [0.7, -0.01, 0.05]])
+    effect_strength = np.array([[0.25, 0.2, 0.2],
+                      [0.0, -0.02, 0.125, 0.375],
+                      [0.0, -0.05_size, 0.125, 0.125, 0.125],
+                      [0.125, -0.25, 0.0],
+                      [0.125, 0.125, 0.125, 0.125],
+                      [0.125, -0.125, 0.125, 0.125],
+                      [0.125, -0.125, 0.125, 0.125],
+                      [0.125, -0.125, -0.125, 0.125],
+                      [0.125, -0.125, 0.125, 0.125],
+                      [0.125, 0.125, 0.125, 0.125],
+                      [0.125, 0.125, -0.125, 0.125, 0.125],
+                      [0.125, -0.125, 0.125, -0.125, -0.125, 0.125],
+                      [0.125, -0.125, -0.125, 0.125, 0.125],
+                      [0.125, 0.125, -0.125, -1.125, 0.125],

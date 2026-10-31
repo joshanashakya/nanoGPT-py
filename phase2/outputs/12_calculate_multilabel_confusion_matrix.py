@@ -14,13 +14,27 @@ def calculate_multilabel_confusion_matrix(target_values, predicted_values, label
             - The total number of samples
             - The error count for each label in the confusion matrix
     """
+    result = calculate_multilabel_confusion_matrix(
+        target_values,
+        predicted_values,
+        labels,
+        error_score=error_score,
+    )
+    # The confusion matrix has the following columns:
+        # - The confusion matrix and labels
+        # - The number of samples that belong to each class
+        # - The number of samples that arelong to each class
+        # - The number of samples that arelong to each class
 
-    labels_type = type_maps[indices]
+    #  - The number of samples that are worth to each class
+    #  - The number of samples that are worth to each class
+    #  - The total number of samples that are worth to each class
+    #  - The number of samples that are worth to each class
+    #  - The number of samples that are worth to each class
 
-    labels_type = type_maps[target_indices]
-    predictions_type = type_maps[predictions_type]
-    calibrated_class = calibrated_class.calibrated_class
-
-    predictions = predictions.reshape((-shape, len(metrics_length_of_pred)), (subset_size, _num_samples(predictions_type), 1))
-
-    return predictions
+    #  - The threshold of the confusion matrix.
+    return result.confusion_matrix(
+        labels=labels,
+        confusion_matrix=pred_labels,
+        labels_map=labels_map,
+    )
