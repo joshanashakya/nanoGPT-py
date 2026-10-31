@@ -90,7 +90,7 @@ python -m src.codegpt.train --num-heads 1  --checkpoint-dir models/codegpt_ablat
 python -m src.codegpt.train --num-layers 3 --checkpoint-dir models/codegpt_ablation_num_layers_3
 python -m src.codegpt.train --context-length 256 --checkpoint-dir models/codegpt_ablation_context_length_256
 ```
-(Later flags override earlier ones, so each ablation line replaces the matching setting in `$BASE`.) The character-level ablation needs its own tokenizer first: run `python -m src.codegpt.char_tokenizer`, then train with `--char-level`.
+The character-level ablation needs its own tokenizer first: run `python -m src.codegpt.char_tokenizer`, then train with `--char-level`.
 
 To compare generations, give every model the same prompt (`phase1/inputs/01_transform.py`) and save the completions to `phase1/outputs`:
 ```
