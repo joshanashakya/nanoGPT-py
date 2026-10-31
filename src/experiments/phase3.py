@@ -37,7 +37,7 @@ def write_prompt_files(jsonl_path, output_dir, count=4):
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Phase 3: run the model on every probe.")
-    parser.add_argument("--checkpoint", default=f"{Config.CHECKPOINTS_DIR}/codegpt_baseline/best.pt")
+    parser.add_argument("--checkpoint", default=f"{Config.CHECKPOINTS_DIR}/codegpt/best.pt")
     parser.add_argument("--tokenizer", default=f"{Config.PROCESSED_DATA_DIR}/tokenized/tokenizer.json")
     parser.add_argument("--probes-dir", default=f"{Config.ROOT_DIR}/phase3/probes")
     parser.add_argument("--outputs-dir", default=f"{Config.ROOT_DIR}/phase3/outputs")

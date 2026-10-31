@@ -11,7 +11,12 @@ from src.config import Config
 def cut_function(prompt, completion):
     """Keep the completion only up to the end of the function being completed."""
     # indentation of the last def line in the prompt
-    def_line = [line for line in prompt.splitlines() if line.lstrip().startswith("def ")][-1]
+    def_lines = [line for line in prompt.splitlines() if line.lstrip().startswith(("def ", "async def "))]
+
+    # a prompt without a function (for example a script) has no end to cut at: keep the whole completion
+    if not def_lines:
+        return completion
+    def_line = def_lines[-1]
     def_indent = len(def_line) - len(def_line.lstrip())
 
     # the function ends at the first non-empty line indented no deeper than its def line
@@ -25,13 +30,13 @@ def cut_function(prompt, completion):
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Phase 2: complete every input function with the model.")
-    parser.add_argument("--checkpoint", default=f"{Config.CHECKPOINTS_DIR}/codegpt_baseline/best.pt")
+    parser.add_argument("--checkpoint", default=f"{Config.CHECKPOINTS_DIR}/codegpt/best.pt")
     parser.add_argument("--tokenizer", default=f"{Config.PROCESSED_DATA_DIR}/tokenized/tokenizer.json")
     parser.add_argument("--inputs-dir", default=f"{Config.ROOT_DIR}/phase2/inputs")
     parser.add_argument("--outputs-dir", default=f"{Config.ROOT_DIR}/phase2/outputs")
 
     # Fixed generation settings, the same for every input
-    parser.add_argument("--max-new-tokens", type=int, default=256)
+    parser.add_argument("--max-new-tokens", type=int, default=512)
     parser.add_argument("--temperature", type=float, default=1.0)
     parser.add_argument("--top-k", type=int, default=50)
     parser.add_argument("--seed", type=int, default=1337)
