@@ -1,0 +1,28 @@
+{
+  "data_dir": "/home/jshakya/workspace/nanoGPT-py/data/processed/tokenized",
+  "checkpoint_dir": "models/codegpt_layers_8",
+  "context_length": 1024,
+  "embedding_dim": 512,
+  "num_heads": 8,
+  "num_layers": 8,
+  "dropout": 0.1,
+  "no_pos_emb": false,
+  "no_layer_norm": false,
+  "char_level": false,
+  "batch_size": 32,
+  "epochs": 15,
+  "learning_rate": 0.0003,
+  "seed": 1337,
+  "device": "cuda",
+  "model_config": {
+    "vocab_size": 8192,
+    "context_length": 1024,
+    "embedding_dim": 512,
+    "num_heads": 8,
+    "num_layers": 8,
+    "use_position_embeddings": true,
+    "use_layer_norm": true,
+    "dropout": 0.1
+  },
+  "config_name": "layers_8"
+}
