@@ -1,4 +1,3 @@
-import subprocess
 from src.config import Config
 import requests
 import zipfile
@@ -23,7 +22,27 @@ class DataCollection:
         ("https://github.com/nltk/nltk/archive/refs/heads/develop.zip", "nltk-develop"),
         ("https://github.com/scipy/scipy/archive/refs/heads/main.zip", "scipy-main"),
         ("https://github.com/py-why/dowhy/archive/refs/heads/main.zip", "dowhy-main"),
-        ("https://github.com/optuna/optuna/archive/refs/heads/master.zip", "optuna-master")
+        ("https://github.com/optuna/optuna/archive/refs/heads/master.zip", "optuna-master"),
+        ("https://github.com/Lightning-AI/pytorch-lightning/archive/refs/heads/master.zip", "pytorch-lightning-master"),
+        ("https://github.com/pytorch/ignite/archive/refs/heads/master.zip", "ignite-master"),
+        ("https://github.com/UKPLab/sentence-transformers/archive/refs/heads/main.zip", "sentence-transformers-main"),
+        ("https://github.com/scikit-optimize/scikit-optimize/archive/refs/heads/master.zip", "scikit-optimize-master"),
+        ("https://github.com/scikit-learn-contrib/category_encoders/archive/refs/heads/master.zip", "category_encoders-master"),
+        ("https://github.com/dmlc/xgboost/archive/refs/heads/master.zip", "xgboost-master"),
+        ("https://github.com/microsoft/LightGBM/archive/refs/heads/main.zip", "LightGBM-main"),
+        ("https://github.com/scikit-learn-contrib/imbalanced-learn/archive/refs/heads/master.zip", "imbalanced-learn-master"),
+        ("https://github.com/keras-team/keras/archive/refs/heads/master.zip", "keras-master"),
+        ("https://github.com/pytorch/examples/archive/refs/heads/main.zip", "examples-main"),
+        ("https://github.com/sktime/sktime/archive/refs/heads/main.zip", "sktime-main"),
+        ("https://github.com/Lightning-AI/torchmetrics/archive/refs/heads/master.zip", "torchmetrics-master"),
+        ("https://github.com/unit8co/darts/archive/refs/heads/master.zip", "darts-master"),
+        ("https://github.com/featuretools/featuretools/archive/refs/heads/main.zip", "featuretools-main"),
+        ("https://github.com/time-series-foundation-models/lag-llama/archive/refs/heads/main.zip", "lag-llama-main"),
+        ("https://github.com/Nixtla/neuralforecast/archive/refs/heads/main.zip", "neuralforecast-main"),
+        ("https://github.com/philipperemy/n-beats/archive/refs/heads/master.zip", "n-beats-master"),
+        ("https://github.com/plotly/plotly.py/archive/refs/heads/main.zip", "plotly.py-main"),
+        ("https://github.com/ray-project/ray/archive/refs/heads/master.zip", "ray-master"),
+        ("https://github.com/fastapi/fastapi/archive/refs/heads/master.zip", "fastapi-master"),
     ]
 
     def __init__(self, data_dir: str, processed_data_dir: str = None):
