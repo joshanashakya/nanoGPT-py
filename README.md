@@ -83,15 +83,12 @@ python -m src.codegpt.evaluate
 ### 3. Phase 1 ablations
 The ablations were run on a smaller preliminary configuration (6 layers, 6 heads, width 384, context 512, 11 epochs, no dropout, 10-repository data kept in `data/processed`). Each ablation changes one thing from the preliminary baseline; the exact settings of every run are in its `run_config.json`.
 ```
-BASE="--data-dir data/processed/tokenized --context-length 512 --embedding-dim 384 \
-      --num-heads 6 --num-layers 6 --epochs 11 --dropout 0"
-
-python -m src.codegpt.train $BASE --checkpoint-dir models/codegpt
-python -m src.codegpt.train $BASE --no-pos-emb   --checkpoint-dir models/codegpt_ablation_no_pos_emb
-python -m src.codegpt.train $BASE --no-layer-norm --checkpoint-dir models/codegpt_ablation_no_layer_norm
-python -m src.codegpt.train $BASE --num-heads 1  --checkpoint-dir models/codegpt_ablation_num_heads_1
-python -m src.codegpt.train $BASE --num-layers 3 --checkpoint-dir models/codegpt_ablation_num_layers_3
-python -m src.codegpt.train $BASE --context-length 256 --checkpoint-dir models/codegpt_ablation_context_length_256
+python -m src.codegpt.train --checkpoint-dir models/codegpt
+python -m src.codegpt.train --no-pos-emb   --checkpoint-dir models/codegpt_ablation_no_pos_emb
+python -m src.codegpt.train --no-layer-norm --checkpoint-dir models/codegpt_ablation_no_layer_norm
+python -m src.codegpt.train --num-heads 1  --checkpoint-dir models/codegpt_ablation_num_heads_1
+python -m src.codegpt.train --num-layers 3 --checkpoint-dir models/codegpt_ablation_num_layers_3
+python -m src.codegpt.train --context-length 256 --checkpoint-dir models/codegpt_ablation_context_length_256
 ```
 (Later flags override earlier ones, so each ablation line replaces the matching setting in `$BASE`.) The character-level ablation needs its own tokenizer first: run `python -m src.codegpt.char_tokenizer`, then train with `--char-level`.
 
