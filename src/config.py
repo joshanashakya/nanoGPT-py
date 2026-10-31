@@ -17,7 +17,7 @@ class Config:
     # Which config/gptconfig_<name>.json the model and training use.
     # Change it here, or set the GPT_CONFIG_NAME environment variable for one run.
     CONFIG_DIR = os.path.join(ROOT_DIR, "config")
-    GPT_CONFIG_NAME = os.environ.get("GPT_CONFIG_NAME", "baseline")
+    GPT_CONFIG_NAME = os.environ.get("GPT_CONFIG_NAME", "layers_8")
 
 
 class DevelopmentConfig(Config):
