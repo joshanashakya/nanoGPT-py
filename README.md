@@ -54,10 +54,13 @@ nanoGPT-py is a small GPT-style language model trained from scratch on Python co
         └── plot_loss.py        <- Training and validation loss plots.
 ```
 
+## Codebase Version
+- Repository: `git@github.com:joshanashakya/nanoGPT-py.git`, branch `param-change`.
+
 ## Project Setup
 ### Prerequisites
 - Python 3.12
-- An NVIDIA GPU (training used one GPU; the final model took about 21 minutes)
+- An NVIDIA GPU
 - Install required dependencies:
 ```
 pip install -r requirements.txt
@@ -127,3 +130,5 @@ python -m src.experiments.phase3 --checkpoint models/codegpt_layers_8/best.pt \
 python -m src.utils.plot_loss models/codegpt models/codegpt_layers_8 \
   --labels "Baseline" "8 layers" --output report/figures/loss_layers_8.png
 ```
+
+
