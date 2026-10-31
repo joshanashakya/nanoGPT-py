@@ -1,0 +1,21 @@
+Id,Function,Source,Parses,Error,Decision,Remark
+1,transform_contrast_coding,category_encoders,yes,,Reject,Undefined variable use.
+2,make_weights_for_balanced_classes,dowhy,yes,,Reject,Repeats variable increment.
+3,read_item,fastapi,yes,,Accept after editing,Returned correct variable but missed condition present in the reference code.
+4,TestUpperCaseWordCount,featuretools,yes,,Reject,"As the class name is test, the code performs assertion."
+5,print_gpu_stats,lag-llama,no,line 19: unindent does not match any outer indentation level,Reject,Loops over string print.
+6,IndexTracker,matplotlib,yes,,Reject,Same code repeated.
+7,get_data,neuralforecast,yes,,Reject,Unnecessary code repeat.
+8,tokenize,nltk,yes,,Reject,"The code tries to do something, but meaningless."
+9,create_mock_weights,pandas,no,line 12: '(' was never closed,Reject,Repeats prompt input.
+10,fft,scikit-learn,no,line 23: '[' was never closed,Reject,No output.
+11,_prepare_data,own repo code,no,line 1: unexpected indent,Reject,No output.
+12,calculate_multilabel_confusion_matrix,own repo code,yes,,Reject,The code calls itself.
+13,concat_dir_dataframes,own repo code,no,line 20: unexpected indent,Reject,Creates dataframe instead of concatenation.
+14,perform_rca,own repo code,no,line 14: unindent does not match any outer indentation level,Reject,Random variable initialization with random values.
+15,correct_spelling,own repo code,no,line 35: expected an indented block after 'if' statement on line 34,Reject,No output.
+16,has_close_elements,HumanEvalComm,no,line 20: invalid syntax,Reject,No comparison of numbers.
+17,below_zero,HumanEvalComm,yes,,Reject,Undefined function.
+18,count_distinct_characters,HumanEvalComm,yes,,Reject,"Instead of count, performs length check."
+19,tokenize,gensim,yes,,Reject,Calls itself.
+20,check_documents_type,BERTopic,no,line 4: expected an indented block after 'if' statement on line 3,Reject,Unrelated code.
