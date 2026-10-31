@@ -67,20 +67,20 @@ pip install -r requirements.txt
 ```
 
 ## Running the Project
-### 1. Phase 1: build the data
+### 1. Phase 1: Build the data
 ```
 python -m src.data.collect_data      # download 30 repositories, filter, remove duplicates
 python -m src.data.make_dataset      # 80/10/10 split per repository
 python -m src.codegpt.tokenizer      # BPE tokenizer (train split only) and .bin files
 ```
 
-### 2. Phase 1: train and evaluate the final model
+### 2. Phase 1: Train and evaluate the final model
 ```
 python -m src.codegpt.train --checkpoint-dir models/codegpt
 python -m src.codegpt.evaluate
 ```
 
-### 3. Phase 1 ablations
+### 3. Phase 1: Ablations
 The ablations were run on a smaller preliminary configuration (6 layers, 6 heads, width 384, context 512, 11 epochs, no dropout, 10-repository data kept in `data/processed`). Each ablation changes one thing from the preliminary baseline; the exact settings of every run are in its `run_config.json`.
 ```
 python -m src.codegpt.train --checkpoint-dir models/codegpt
