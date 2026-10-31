@@ -1,10 +1,8 @@
-# Environment used for data collection, training, evaluation and generation (conda env "llm-env", Python 3.12.14)
-torch==2.13.0
-numpy==2.5.2
-tokenizers==0.23.1
+# Environment used for the project (conda env "cslab", Python 3.12.14)
+torch==2.14.0
+numpy==2.5.3
+tokenizers==0.23.2
+matplotlib==3.11.2
 loguru==0.7.3
 requests==2.34.2
 psutil==7.2.2
-
-# Only for src/utils/plot_loss.py (the plots were drawn in a different environment, Python 3.14.6)
-matplotlib==3.11.0
