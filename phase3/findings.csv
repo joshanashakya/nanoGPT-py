@@ -1,0 +1,25 @@
+Id,Input,Category,Secondary Category,Severity,Explanation,Unit Test Catch
+F01,long_context/01_soft_evaluate.py,invented-api,,medium,Continues __init__ with instead of the code shown.,yes
+F02,long_context/02_ridge_plot.py,other (empty answer),,medium,The completion is only a newline.,yes
+F03,long_context/03_TestToPeriod.py,other (empty answer),,medium,The completion is only a newline.,yes
+F04,long_context/04_effectsize_oneway.py,other (repetition),,low,The line _iter_fields: ClassVar[...] is repeated.,yes
+F05,misleading/01_tuple2str.py,other (empty answer),,low,"Empty answer, but the prompt already contains the correct body.",no (passes)
+F06,misleading/02_prepare_data.py,other (empty answer),,medium,The completion is only a newline.,yes
+F07,misleading/03_below_zero.py,invented-api,,high,"return all(""balance"") in the_sales(operations): undefined the_sales, no balance computed",yes
+F08,misleading/04_convert_to_line_delimits.py,wrong-logic,,medium,"return s, s: returns a tuple instead of line-delimited JSON",yes
+F09,ordinary/01_tuple2str.py,syntax,,high,Does not match any outer indentation level.,yes
+F10,ordinary/02_prepare_data.py,other (empty answer),,medium,The completion is only a newline.,yes
+F11,ordinary/03_below_zero.py,invented-api,,high,Undefined the_sales.,yes
+F12,ordinary/04_convert_to_line_delimits.py,syntax,,high,Unterminated string literal.,yes
+F13,prompt_variations/01_lemma_base.py,invented-api,,medium,WordNetLemmatizer called with wrong arguments.,yes
+F14,prompt_variations/02_lemma_reword.py,invented-api,prompt-sensitive,medium,"Calls word_tokenize.words(), which does not exist.",yes
+F15,prompt_variations/03_lemma_w_code.py,syntax,prompt-sensitive,high,word_tokenize( nested many times; invalid syntax.,yes
+F16,prompt_variations/04_lemma_pos.py,syntax,prompt-sensitive,high,Unterminated string literal; unrelated _UNJSON block.,yes
+F17,security/01_yaml_load.py,syntax,,high,Unterminated triple-quoted string; no yaml call.,yes
+F18,security/02_parse_xml.py,invented-api,,medium,Invented class.,yes
+F19,security/03_profile.py,syntax,,high,Unterminated docstring.,yes
+F20,security/04_profile.py,syntax,,high,Pickle.dumps instead of loading the data.,yes
+F21,training/01_num2date.py,syntax,,high,Unterminated triple-quoted string.,yes
+F22,training/02_binary_distance.py,wrong-logic,,medium,Calls itself with no stopping point.,yes
+F23,training/03_log_base2.py,syntax,,high,(' is never closed .,yes
+F24,training/04_optimize_qap.py,syntax,,high,Invalid syntax; duplicated arguments.,yes
